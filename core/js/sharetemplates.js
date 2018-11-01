@@ -10,7 +10,7 @@ templates['sharedialoglinkshareview'] = template({"1":function(container,depth0,
 },"2":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
-  return "		<li>\n			<div class=\"avatar icon-public-white\"></div>\n			<span class=\"username\">"
+  return "		<li data-share-id=\"new-share\">\n			<div class=\"avatar icon-public-white\"></div>\n			<span class=\"username\">"
     + alias4(((helper = (helper = helpers.newShareLabel || (depth0 != null ? depth0.newShareLabel : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"newShareLabel","hash":{},"data":data}) : helper)))
     + "</span>\n			<span class=\"sharingOptionsGroup\">\n				<div class=\"share-menu\">\n					<a href=\"#\" class=\"icon icon-add new-share has-tooltip "
     + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.showPending : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
@@ -42,15 +42,25 @@ templates['sharedialoglinkshareview'] = template({"1":function(container,depth0,
     + alias4(((helper = (helper = helpers.shareLinkURL || (depth0 != null ? depth0.shareLinkURL : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"shareLinkURL","hash":{},"data":data}) : helper)))
     + "\" title=\""
     + alias4(((helper = (helper = helpers.copyLabel || (depth0 != null ? depth0.copyLabel : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"copyLabel","hash":{},"data":data}) : helper)))
-    + "\"></a>\n				<div class=\"share-menu\" tabindex=\"0\"><span class=\"icon icon-more\"></span>\n					"
-    + ((stack1 = ((helper = (helper = helpers.popoverMenu || (depth0 != null ? depth0.popoverMenu : depth0)) != null ? helper : alias2),(typeof helper === alias3 ? helper.call(alias1,{"name":"popoverMenu","hash":{},"data":data}) : helper))) != null ? stack1 : "")
-    + "\n				</div>\n			</span>\n		</li>\n";
-},"9":function(container,depth0,helpers,partials,data) {
-    var stack1;
+    + "\"></a>\n				<div class=\"share-menu\">\n					<a href=\"#\" class=\"icon icon-more "
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.showPending : depth0),{"name":"if","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\"></a>\n					<span class=\"icon icon-loading-small "
+    + ((stack1 = helpers.unless.call(alias1,(depth0 != null ? depth0.showPending : depth0),{"name":"unless","hash":{},"fn":container.program(3, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\"></span>\n"
+    + ((stack1 = helpers["if"].call(alias1,(depth0 != null ? depth0.showPending : depth0),{"name":"if","hash":{},"fn":container.program(5, data, 0),"inverse":container.program(8, data, 0),"data":data})) != null ? stack1 : "")
+    + "				</div>\n			</span>\n		</li>\n";
+},"8":function(container,depth0,helpers,partials,data) {
+    var stack1, helper;
 
-  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.noSharingPlaceholder : depth0),{"name":"if","hash":{},"fn":container.program(10, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+  return "						"
+    + ((stack1 = ((helper = (helper = helpers.popoverMenu || (depth0 != null ? depth0.popoverMenu : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : (container.nullContext || {}),{"name":"popoverMenu","hash":{},"data":data}) : helper))) != null ? stack1 : "")
     + "\n";
 },"10":function(container,depth0,helpers,partials,data) {
+    var stack1;
+
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.noSharingPlaceholder : depth0),{"name":"if","hash":{},"fn":container.program(11, data, 0),"inverse":container.noop,"data":data})) != null ? stack1 : "")
+    + "\n";
+},"11":function(container,depth0,helpers,partials,data) {
     var helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;
 
   return "<input id=\"shareWith-"
@@ -61,7 +71,7 @@ templates['sharedialoglinkshareview'] = template({"1":function(container,depth0,
 },"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
     var stack1;
 
-  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.shareAllowed : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(9, data, 0),"data":data})) != null ? stack1 : "");
+  return ((stack1 = helpers["if"].call(depth0 != null ? depth0 : (container.nullContext || {}),(depth0 != null ? depth0.shareAllowed : depth0),{"name":"if","hash":{},"fn":container.program(1, data, 0),"inverse":container.program(10, data, 0),"data":data})) != null ? stack1 : "");
 },"useData":true});
 templates['sharedialoglinkshareview_popover_menu'] = template({"1":function(container,depth0,helpers,partials,data) {
     var stack1, helper, alias1=depth0 != null ? depth0 : (container.nullContext || {}), alias2=helpers.helperMissing, alias3="function", alias4=container.escapeExpression;

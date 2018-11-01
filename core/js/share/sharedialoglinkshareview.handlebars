@@ -1,7 +1,7 @@
 {{#if shareAllowed}}
 <ul class="shareWithList">
 	{{#if nolinkShares}}
-		<li>
+		<li data-share-id="new-share">
 			<div class="avatar icon-public-white"></div>
 			<span class="username">{{newShareLabel}}</span>
 			<span class="sharingOptionsGroup">
@@ -21,8 +21,14 @@
 			
 			<span class="sharingOptionsGroup">
 				<a href="#" class="clipboard-button icon icon-clippy has-tooltip" data-clipboard-text="{{shareLinkURL}}" title="{{copyLabel}}"></a>
-				<div class="share-menu" tabindex="0"><span class="icon icon-more"></span>
-					{{{popoverMenu}}}
+				<div class="share-menu">
+					<a href="#" class="icon icon-more {{#if showPending}}hidden{{/if}}"></a>
+					<span class="icon icon-loading-small {{#unless showPending}}hidden{{/unless}}"></span>
+					{{#if showPending}}
+						{{{pendingPopoverMenu}}}
+					{{else}}
+						{{{popoverMenu}}}
+					{{/if}}
 				</div>
 			</span>
 		</li>
